@@ -6,8 +6,8 @@ export const createTrainsForDate = (date, origin, destination) => {
   const trainsRef = ref(db, `trains/${date}`);
 
   const trainData = {
-    morningTrain: createTrainStructure('1234', '08:00 AM', '10:00 AM', origin, destination),
-    eveningTrain: createTrainStructure('5678', '08:00 PM', '10:00 PM', origin, destination),
+    "1234": createTrainStructure('1234', '08:00 AM', '10:00 AM', origin, destination),
+    "5678": createTrainStructure('5678', '08:00 PM', '10:00 PM', origin, destination),
   };
 
   // Write the train data to Firebase

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { ref, update } from 'firebase/database';
+import { ref, update, onValue } from 'firebase/database';
 import { db } from '../firebase';
 import Coach from './Coach';
 import './styles.css';
@@ -14,6 +14,24 @@ const Train = () => {
   // Use useState to store selectedTrain
   const [selectedTrain, setSelectedTrain] = useState(initialSelectedTrain);
   const [selectedSeats, setSelectedSeats] = useState([]);
+
+  useEffect(() => {
+    const trainRef = ref(db, `trains/${departureDate}/${selectedTrain.trainNumber}/coaches`);
+
+    const unsubscribe = onValue(trainRef, (snapshot) => {
+      const updatedCoaches = snapshot.val();
+      if (updatedCoaches) {
+        // Update the selectedTrain state with new coach and seat data
+        setSelectedTrain(prevTrain => ({
+          ...prevTrain,
+          coaches: updatedCoaches,
+        }));
+      }
+    });
+
+    // Cleanup the listener when the component unmounts
+    return () => unsubscribe();
+  }, [departureDate, selectedTrain.trainNumber]);
 
   const handleSeatClick = (seatNumber, coachNumber, trainKey) => {
     if (selectedSeats.length >= numberOfPassengers) {
@@ -94,13 +112,20 @@ const Train = () => {
         )}
       </div>
       <div className="form">
-        <button className="form__submit" onClick={handleConfirmSelection} disabled={selectedSeats.length !== numberOfPassengers}>
+        <button
+          className="form__submit"
+          onClick={handleConfirmSelection}
+          disabled={selectedSeats.length !== numberOfPassengers}
+        >
           Confirm Selection
         </button>
-        <button className="form__submit" onClick={handleCancelAll}>Cancel Selection</button>
+        <button className="form__submit" onClick={handleCancelAll}>
+          Cancel Selection
+        </button>
       </div>
     </div>
   );
+  
 };
 
 export default Train;
