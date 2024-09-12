@@ -1,0 +1,95 @@
+/* General container styling */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Train selection form */
+  .form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  h2.cta-form {
+    color: #333;
+    text-align: center;
+  }
+  
+  .form__submit {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .form__submit:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Coach and seat styling */
+  h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .coach {
+    margin-bottom: 20px;
+  }
+  
+  .seats-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .seat {
+    background-color: green;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .seat.booked {
+    background-color: red;
+    cursor: not-allowed;
+  }
+  
+  /* Booking summary */
+  .booking-summary {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .booking-summary p {
+    font-size: 1.2em;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+  
