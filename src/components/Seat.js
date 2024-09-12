@@ -6,8 +6,8 @@ const Seat = ({ seatNumber, isBooked, handleClick }) => {
       onClick={handleClick}
       style={{
         backgroundColor: isBooked ? 'red' : 'green',
-        margin: '5px',
-        padding: '10px',
+        margin: '6px',
+        padding: '12px',
         border: '1px solid #ccc',
         cursor: isBooked ? 'not-allowed' : 'pointer',
       }}

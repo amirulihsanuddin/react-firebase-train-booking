@@ -29,7 +29,7 @@ const Home = () => {
       <form className="form">
         <div>
           <label htmlFor="origin" className="form__label">Origin</label>
-          <select value={origin} onChange={(e) => setOrigin(e.target.value)}>
+          <select className="form__input" value={origin} onChange={(e) => setOrigin(e.target.value)}>
             <option value="">Select City</option>
             <option value="London">London</option>
             <option value="Paris">Paris</option>
@@ -38,7 +38,7 @@ const Home = () => {
 
         <div>
           <label htmlFor="destination" className="form__label">Destination</label>
-          <select value={destination} onChange={(e) => setDestination(e.target.value)}>
+          <select className="form__input" value={destination} onChange={(e) => setDestination(e.target.value)}>
             <option value="">Select City</option>
             <option value="London">London</option>
             <option value="Paris">Paris</option>
