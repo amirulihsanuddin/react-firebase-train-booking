@@ -115,7 +115,6 @@ const Train = () => {
         <button
           className="form__submit"
           onClick={handleConfirmSelection}
-          disabled={selectedSeats.length !== numberOfPassengers}
         >
           Confirm Selection
         </button>
